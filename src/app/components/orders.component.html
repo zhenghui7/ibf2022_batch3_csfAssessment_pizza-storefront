@@ -1,0 +1,24 @@
+<div></div>
+
+<div class="border" *ngIf="bundle$ | async as b else error">
+    <h3>Orders for {{ email }}</h3>
+
+    <div *ngFor="let u of apiReturn">
+        <div>
+            {{ u.date }}
+        </div>    <div>
+            {{ u.orderId }} <button type='button' (click)="Delivered()">Delivered</button>
+        </div>    <div>
+            {{ u.total }}
+        </div>
+    </div>
+    <br>
+    <br>
+    <button type="button" [routerLink]="['/']" style="font-size: 20px; width: 200px">Back</button>
+</div>
+
+
+
+<ng-template #error>
+    <h3>Error. Please try again</h3>
+</ng-template>
